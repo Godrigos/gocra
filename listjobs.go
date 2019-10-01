@@ -10,9 +10,9 @@ import (
 ListJobs GETs a list of jobs information from the server
 and returns a slice of JobList structures.
 */
-func ListJobs() []JobsList {
+func ListJobs() JobsList {
 
-	resp := login("GET", auth.URL+"/job/"+auth.User)
+	resp := login("GET", auth.URL+"/job/"+auth.User, nil)
 
 	b, err := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
@@ -21,11 +21,7 @@ func ListJobs() []JobsList {
 	}
 
 	var job JobsList
-	var jobs []JobsList
 	xml.Unmarshal(b, &job)
 
-	for range job.Jobs.Jobstatus {
-		jobs = append(jobs, job)
-	}
-	return jobs
+	return job
 }

@@ -7,13 +7,12 @@ import (
 )
 
 /*
-JobStat GETs a job status information from CIPRES server
-based on a job handle provided by listJobs function and returns
-a JobStatus structure
+JobStat GETs a job handle url information from CIPRES server
+provided by listJobs function and returns a JobStatus structure
 */
-func JobStat(jb JobsList, i int) JobStatus {
+func JobStat(jh string) JobStatus {
 
-	resp := login("GET", jb.Jobs.Jobstatus[i].SelfURI.URL)
+	resp := login("GET", jh, nil)
 
 	b, err := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()

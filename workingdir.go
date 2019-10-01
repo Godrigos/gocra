@@ -13,7 +13,7 @@ a WorkingDir structure
 */
 func WorkDir(job JobStatus) WorkingDir {
 
-	resp := login("GET", job.WorkingDirURI.URL)
+	resp := login("GET", job.WorkingDirURI.URL, nil)
 
 	b, err := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()

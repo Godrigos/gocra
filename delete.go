@@ -10,9 +10,10 @@ Must be only executes after the results have been already downloaded.
 */
 func Delete(url string) {
 
-	resp := login("DELETE", url)
+	resp := login("DELETE", url, nil)
 
-	if resp.StatusCode == 204 || resp.StatusCode == 200 {
+	if resp.StatusCode == 200 || resp.StatusCode == 202 ||
+		resp.StatusCode == 204 {
 		fmt.Println("Job deleted from Cipres.")
 	} else {
 		fmt.Println(resp.Status)

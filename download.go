@@ -14,7 +14,7 @@ into memory.
 func DownloadFile(filepath string, url string, wg *sync.WaitGroup) error {
 
 	// Get the data
-	resp := login("GET", url)
+	resp := login("GET", url, nil)
 	defer resp.Body.Close()
 
 	// Create the file

@@ -13,7 +13,7 @@ a JobResults structure
 */
 func JobResult(jb JobStatus) JobResults {
 
-	resp := login("GET", jb.ResultsURI.URL)
+	resp := login("GET", jb.ResultsURI.URL, nil)
 
 	b, err := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
