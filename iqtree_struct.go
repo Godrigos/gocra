@@ -565,9 +565,7 @@ The runs use varying numbers of cores within a single node of Comet depending up
 the data set.
 
 - Ask the user whether his or her data set has more than 12 partitions.
-
 - Ask the user whether his or her analysis needs more than 60 GB of memory.
-
 - Specify the Slurm partition, CIPRES threads, and value for -nt according to the
 following table.
 

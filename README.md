@@ -8,7 +8,7 @@ It is under development (beta) and still lacks te most important function, submi
 Neverthelss it is already capable of monitoring jobs status and downloading results.
 
 You need a _cra_auth.json_ file (the source code contais an example that can be edited)
-in your user home folder containing you credentias used to login to Cipres API.
+in your user home folder containing you credentials used to login to Cipres API.
 
 ```json
 {

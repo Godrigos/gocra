@@ -5,12 +5,16 @@ import (
 )
 
 /*
-Delete send a requesto to delete a completed job.
+Delete send a request to delete a completed job.
 Must be only executes after the results have been already downloaded.
 */
 func Delete(url string) {
 
-	login("DELETE", url)
+	resp := login("DELETE", url)
 
-	fmt.Println("Job deleted from Cipres.")
+	if resp.StatusCode == 204 || resp.StatusCode == 200 {
+		fmt.Println("Job deleted from Cipres.")
+	} else {
+		fmt.Println(resp.Status)
+	}
 }

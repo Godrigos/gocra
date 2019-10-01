@@ -8,8 +8,8 @@ import (
 
 /*
 WorkDir GETs a job working directory files list from CIPRES server
-   based on a job handle provided by jobStatus function and returns
-   a WorkingDir structure
+based on a job handle provided by jobStatus function and returns
+a WorkingDir structure
 */
 func WorkDir(job JobStatus) WorkingDir {
 
