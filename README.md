@@ -40,7 +40,7 @@ func main() {
     var jr gocra.JobResults
     var total float64
     jl := gocra.ListJobs()
-    var count int
+    count := len(jl.Jobs.JobStatus)
 
     // Ends the execution if there is no job on server.
     if len(jl) == 0 {
