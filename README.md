@@ -42,7 +42,7 @@ func main() {
     count := len(jl.Jobs.Jobstatus)
 
     // Ends the execution if there is no job on server.
-    if len(jl.Jobs.Jobstatus) == 0 {
+    if count == 0 {
         fmt.Println("There are no jobs on Cipres servers.")
         os.Exit(0)
     }
