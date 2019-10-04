@@ -4,13 +4,12 @@
 using [golang](https://golang.org).
 
 When using **gocra** alway consut the CRA [User Guide](https://www.phylo.org/restusers/docs/guide.html)
+along with [gocra documentation](https://godoc.org/github.com/Godrigos/gocra).
 
 **gocra** is capable of submmiting jobs, monitoring jobs status, download results and delete jobs.
 
 You need a _cra_auth.json_ file (the source code contais an example that can be edited)
 in your user home folder containing you credentials used to login to Cipres API.
-
-along with [gocra documentation](https://godoc.org/github.com/Godrigos/gocra).
 
 ```json
 {
