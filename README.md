@@ -3,14 +3,13 @@
 **gocra** is a port to Cipres Restful API ([CRA](https://www.phylo.org/restusers/login.action))
 using [golang](https://golang.org).
 
-It is still under development (beta).
+When using **gocra** alway consut the CRA [User Guide](https://www.phylo.org/restusers/docs/guide.html)
 
 Neverthelss it is already capable of submmiting jobs, monitoring jobs status and downloading results.
 
 You need a _cra_auth.json_ file (the source code contais an example that can be edited)
 in your user home folder containing you credentials used to login to Cipres API.
 
-When using **gocra** alway consut the CRA [User Guide](https://www.phylo.org/restusers/docs/guide.html)
 along with [gocra documentation](https://godoc.org/github.com/Godrigos/gocra).
 
 ```json
