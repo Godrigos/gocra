@@ -51,10 +51,6 @@ func main() {
         job := gocra.JobStat(jl.Jobs.Jobstatus[i].SelfURI.URL)
         wdir := gocra.WorkDir(job)
         jr = gocra.JobResult(job)
-        usr, err := os.UserHomeDir()
-        if err != nil {
-            log.Fatal(err)
-        }
 
         /* Based on job state passed by jobStage field from a JobStatus structure
            prints to stdout the actual job stage and download its results if the
