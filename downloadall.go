@@ -9,10 +9,11 @@ import (
 )
 
 /*
-DownloadAll will use download function in parallel to get all
-the result files from Cipres server.
-It will create a folder named as the job metadata clientJobName or
-the jobhandle code if the previuos field is empty.
+DownloadAll will use parallelization to get all the result files
+from Cipres server.
+It will create a new folder insite your home directory Downloads folder,
+named as the job metadata clientJobName or the jobhandle code if the
+previuos field is empty.
 */
 func DownloadAll(jr JobResults, job JobStatus) {
 
@@ -22,7 +23,7 @@ func DownloadAll(jr JobResults, job JobStatus) {
 		log.Fatal(err)
 	}
 
-	// Create folder to store doenloaded files
+	// Create folder to store downloaded files
 	folder := job.JobHandle
 
 	if job.Metadata.Entry.Value != "" {

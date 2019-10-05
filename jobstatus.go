@@ -7,7 +7,7 @@ import (
 )
 
 /*
-JobStat GETs a job handle url information from CIPRES server
+JobStat GETs a job handle url (as s string) information from CIPRES server
 provided by listJobs function and returns a JobStatus structure
 */
 func JobStat(jh string) JobStatus {

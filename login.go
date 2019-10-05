@@ -6,8 +6,10 @@ import (
 	"net/http"
 )
 
-/* Authenticate prepares a http.Request that will be used by
-   by other function to login on CIPRES */
+/*
+Authenticate prepares a http.Request that will be used by
+by other function to login on CIPRES
+*/
 func authenticate(method string, url string, body io.Reader) *http.Request {
 
 	req, err := http.NewRequest(method, url, body)
@@ -20,8 +22,10 @@ func authenticate(method string, url string, body io.Reader) *http.Request {
 	return req
 }
 
-/* Login and access server data based on the URL provided,
-can get jobs list, status and results. */
+/*
+Login and access server data based on the URL provided,
+can get jobs list, status and results.
+*/
 func login(method string, url string, body io.Reader) *http.Response {
 
 	req := authenticate(method, url, body)

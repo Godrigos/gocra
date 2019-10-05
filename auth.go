@@ -9,8 +9,10 @@ import (
 
 var auth Auth
 
-/* Initializes the the authentication data and import job data
-   and count the number of job on server side. */
+/*
+Initializes the the authentication data and import job data
+and count the number of job on server side.
+*/
 func init() {
 
 	home, err := os.UserHomeDir()

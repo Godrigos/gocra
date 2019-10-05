@@ -5,7 +5,7 @@ import (
 )
 
 /*
-Delete send a request to delete a completed job.
+Delete send a request to delete a completed job and its corresponding files.
 Must be only executes after the results have been already downloaded.
 */
 func Delete(url string) {

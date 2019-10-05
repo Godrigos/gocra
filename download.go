@@ -11,6 +11,7 @@ because it will write as it downloads and not load the whole file
 into memory.
 The target folder should be given as the first funtion argument, followed
 by the file url.
+Returns an error if something goes wrong.
 */
 func DownloadFile(filepath string, url string) error {
 

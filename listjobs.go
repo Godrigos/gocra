@@ -8,7 +8,7 @@ import (
 
 /*
 ListJobs GETs a list of jobs information from the server
-and returns a slice of JobList structures.
+and returns a JobList structure.
 */
 func ListJobs() JobsList {
 

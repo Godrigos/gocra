@@ -13,7 +13,7 @@ import (
 )
 
 /*
-Submit a job and returns a JobStatus object.
+Submit a job and returns a JobStatus object and pointer to a bytes.Buffer.
 
 params is a map where each key is a Visible parameter or metadata
 and the value is the string to assign to the parameter.
