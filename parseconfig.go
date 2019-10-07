@@ -14,14 +14,8 @@ It is usefull to use with data copied from Cipres Tool Configuration Helper
 (https://www.phylo.org/restusers/docs/cipresXml) output
 and saved to a text file.
 
-The data should be in the following format:
-
-tool = IQTREE_XSEDE
-vparam.abayes_test_ = 0
-vparam.bootstrap_type_ = bb
-vparam.choose_randomtype_ = -r
-vparam.lbp_test_ = 0
-metadata.statusEmail = true
+The data should be in the following format: tool = IQTREE_XSEDE, with each
+parameter or metadata in a different line.
 
 Infile Parameters should be entered separately as the file parameter of submit
 function, once they are processed differently by the function.
