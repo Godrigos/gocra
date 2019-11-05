@@ -3,7 +3,6 @@ package gocra
 import (
 	"fmt"
 	"io"
-	"log"
 	"os"
 	"sync"
 )
@@ -11,17 +10,13 @@ import (
 /*
 DownloadAll will use parallelization to get all the result files
 from Cipres server.
-It will create a new folder insite your home directory Downloads folder,
+It will create a new folder at the given destination directory,
 named as the job metadata clientJobName or the jobhandle code if the
 previuos field is empty.
 */
-func DownloadAll(jr JobResults, job JobStatus) {
+func DownloadAll(jr JobResults, job JobStatus, destDir string) {
 
 	var wg sync.WaitGroup
-	usr, err := os.UserHomeDir()
-	if err != nil {
-		log.Fatal(err)
-	}
 
 	// Create folder to store downloaded files
 	folder := job.JobHandle
@@ -29,14 +24,14 @@ func DownloadAll(jr JobResults, job JobStatus) {
 	if job.Metadata.Entry.Value != "" {
 		folder = job.Metadata.Entry.Value
 	}
-	os.Mkdir(usr+"/Downloads/"+folder, 0766)
+	os.Mkdir(destDir+folder, 0766)
 
 	// Parallel downloading
 	for i := range jr.Jobfiles.Jobfile {
 
 		wg.Add(1)
 
-		go download(usr+"/Downloads/"+folder+"/"+
+		go download(destDir+folder+"/"+
 			jr.Jobfiles.Jobfile[i].Filename,
 			jr.Jobfiles.Jobfile[i].DownloadURI.URL, &wg)
 	}
