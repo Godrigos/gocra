@@ -51,6 +51,8 @@ func main() {
         job := gocra.JobStat(jl.Jobs.Jobstatus[i].SelfURI.URL)
         wdir := gocra.WorkDir(job)
         jr = gocra.JobResult(job)
+        // Destination folder for the downloaded files
+        destDir := "/home/user/Downloads"
 
         /* Based on job state passed by jobStage field from a JobStatus structure
            prints to stdout the actual job stage and download its results if the
@@ -108,7 +110,7 @@ func main() {
             fmt.Printf("\nDownloading files of job %s (%.2f MB)...\n",
                 job.Metadata.Entry.Value, total/1000)
             // Parallel downloading
-            gocra.DownloadAll(jr, job)
+            gocra.DownloadAll(jr, job, destDir)
             gocra.Delete(job.SelfURI.URL)
 
         default:
