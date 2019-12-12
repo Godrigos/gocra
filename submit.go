@@ -5,7 +5,6 @@ import (
 	"encoding/xml"
 	"io"
 	"io/ioutil"
-	"log"
 	"mime/multipart"
 	"net/http"
 	"os"
@@ -57,15 +56,18 @@ func Submit(params map[string]string, path map[string]string,
 
 		file, err = os.Open(path[key])
 		if err != nil {
-			log.Fatal(err)
+			panic(err)
 		}
 		defer file.Close()
 
 		part, err = writer.CreateFormFile(key, filepath.Base(path[key]))
 		if err != nil {
-			log.Fatal(err)
+			panic(err)
 		}
 		_, err = io.Copy(part, file)
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	for key, val := range params {
@@ -73,7 +75,7 @@ func Submit(params map[string]string, path map[string]string,
 	}
 	err = writer.Close()
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	req, err := http.NewRequest("POST", uri, body)
@@ -84,19 +86,19 @@ func Submit(params map[string]string, path map[string]string,
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	if validate == true {
 		_, err := bo.ReadFrom(resp.Body)
 		if err != nil {
-			log.Fatal(err)
+			panic(err)
 		}
 	}
 
 	b, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	defer resp.Body.Close()

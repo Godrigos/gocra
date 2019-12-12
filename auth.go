@@ -3,7 +3,6 @@ package gocra
 import (
 	"encoding/json"
 	"io/ioutil"
-	"log"
 	"os"
 )
 
@@ -17,18 +16,18 @@ func init() {
 
 	home, err := os.UserHomeDir()
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	jsonFile, err := os.Open(home + "/cra_auth.json")
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	defer jsonFile.Close()
 
 	byteValue, err := ioutil.ReadAll(jsonFile)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	json.Unmarshal(byteValue, &auth)

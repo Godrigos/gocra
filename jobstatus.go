@@ -3,7 +3,6 @@ package gocra
 import (
 	"encoding/xml"
 	"io/ioutil"
-	"log"
 )
 
 /*
@@ -17,7 +16,7 @@ func JobStat(jh string) JobStatus {
 	b, err := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	var job JobStatus

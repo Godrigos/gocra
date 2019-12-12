@@ -2,7 +2,6 @@ package gocra
 
 import (
 	"bufio"
-	"log"
 	"os"
 	"strings"
 )
@@ -23,7 +22,7 @@ function, once they are processed differently by the function.
 func ParseConfig(path string) map[string]string {
 	file, err := os.Open(path)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	defer file.Close()
 

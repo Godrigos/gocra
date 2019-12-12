@@ -2,7 +2,6 @@ package gocra
 
 import (
 	"io"
-	"log"
 	"net/http"
 )
 
@@ -14,7 +13,7 @@ func authenticate(method string, url string, body io.Reader) *http.Request {
 
 	req, err := http.NewRequest(method, url, body)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	req.SetBasicAuth(auth.User, auth.Passwd)
 	req.Header.Set("cipres-appkey", auth.AppID)
@@ -34,7 +33,7 @@ func login(method string, url string, body io.Reader) *http.Response {
 
 	resp, err := client.Do(req)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	return resp
 }
