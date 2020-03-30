@@ -17,18 +17,20 @@ Submit a job and returns a JobStatus object and pointer to a bytes.Buffer.
 params is a map where each key is a Visible parameter or metadata
 and the value is the string to assign to the parameter.
 
-For example: {
-			  "vparam.toolId" : "CLUSTALW",
-			  "vparam.runtime_" : "1",
-			 }
+For example:
+{
+  "vparam.toolId" : "CLUSTALW",
+  "vparam.runtime_" : "1",
+}
 
 path is a map where each key is an InFile parameter and the value
 is the full path of the file.
 
-For example: {
-			  "input.infile_" : "/samplefiles/sample1_in.fasta,
-			  "input.usetree_" : "/samplefiles/guidetree.dnd",
-			 }
+For example:
+{
+  "input.infile_" : "/samplefiles/sample1_in.fasta,
+  "input.usetree_" : "/samplefiles/guidetree.dnd",
+}
 
 
 See https://www.phylo.org/restusers/docs/guide.html#ConfigureParams
